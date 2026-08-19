@@ -1,0 +1,736 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: var(--fundo);
+  color: var(--texto);
+  line-height: 1.6;
+  transition: background 0.3s, color 0.3s;
+}
+
+:root {
+  --principal: #e53935;
+  --escuro: #b71c1c;
+  --fundo: #f8f9fa;
+  --texto: #333;
+  --card: #fff;
+}
+
+body.dark {
+  --fundo: #121212;
+  --texto: #f5f5f5;
+  --card: #1e1e1e;
+  --principal: #ff5555;
+  --escuro: #c62828;
+}
+
+/* ===== HEADER ===== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 3rem;
+  background: linear-gradient(135deg, var(--principal), var(--escuro));
+  color: white;
+  position: relative;
+}
+
+header .logo {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+header .logo img {
+  max-width: 120px; /* Ajuste o tamanho da logo */
+  height: auto;
+}
+
+header .titulo {
+  flex: 3;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+}
+
+header p {
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+header .toggle-tema {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#toggleTema {
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#toggleTema:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  padding-bottom: 4rem;  /* Adiciona espaçamento extra na parte inferior para não cobrir o conteúdo */
+}
+
+
+/* ===== NAV ===== */
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: var(--card);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  padding: 1rem;
+}
+
+nav button {
+  border: none;
+  background: none;
+  padding: 1rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--principal);
+  transition: all 0.3s;
+  margin-left: 1rem;
+}
+
+nav button:hover,
+nav button.ativo {
+  background-color: #ffeaea;
+  color: var(--escuro);
+}
+
+/* ===== MAIN ===== */
+main {
+  max-width: 900px;
+  margin: 2rem auto 5rem;
+  padding: 0 1rem;
+}
+
+section {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+section.ativo {
+  display: block;
+  opacity: 1;
+}
+
+h2 {
+  color: var(--principal);
+  margin-bottom: 1rem;
+}
+
+.info-box {
+  background: var(--card);
+  border-left: 5px solid var(--principal);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  background-color: var(--card);
+  color: var(--texto);
+  padding: 1rem;
+  position: relative;  /* Fixa o footer na parte inferior */
+  bottom: 0;        /* Garante que ele fique no fundo */
+  left: 0;          /* Garante que o footer ocupe toda a largura da tela */
+  width: 100%;      /* Faz o footer ocupar toda a largura da tela */
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar destaque */
+  z-index: 10;      /* Garante que o footer fique sobre o conteúdo */
+}
+
+
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+  }
+
+  header .logo img {
+    max-width: 100px;
+  }
+
+  nav {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  nav button {
+    margin-left: 0;
+    margin-bottom: 0.5rem;
+    width: 100%;
+  }
+}
+
+/* ===== SEÇÃO BEM-VINDO ===== */
+#inicio {
+  margin-top: 2rem;
+}
+
+#inicio h2 {
+  color: var(--principal);
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.intro-box {
+  background-color: var(--card);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.intro-box p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--texto);
+  margin-bottom: 1.5rem;
+}
+
+.intro-box strong {
+  color: var(--principal);
+}
+
+.info-box {
+  background: var(--card);
+  border-left: 5px solid var(--principal);
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.info-box h3 {
+  color: var(--principal);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.info-box ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.info-box ul li {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+.info-box ul li::before {
+  content: "✔️";
+  margin-right: 10px;
+  color: var(--principal);
+}
+
+/* Ajustes para dispositivos móveis */
+@media (max-width: 600px) {
+  #inicio h2 {
+    font-size: 2rem;
+  }
+
+  .intro-box {
+    padding: 1rem;
+  }
+
+  .info-box {
+    padding: 1rem;
+  }
+
+  .info-box h3 {
+    font-size: 1.3rem;
+  }
+}
+
+/* ===== SEÇÃO EMERGÊNCIAS ===== */
+#emergencias {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+#emergencias h2 {
+  color: var(--principal);
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+#emergencias p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* Estilo para os botões de emergência */
+/* ===== SEÇÃO EMERGÊNCIAS ===== */
+#emergencias {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+#emergencias h2 {
+  color: var(--principal);
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+#emergencias p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* Estilo para os botões de emergência */
+/* ===== SEÇÃO EMERGÊNCIAS ===== */
+#emergencias {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+#emergencias h2 {
+  color: var(--principal);
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+#emergencias p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* Estilo para os botões de emergência */
+.botoes-emergencia {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 botões por linha */
+  gap: 1.5rem;
+  margin-top: 2rem;
+  max-width: 100%; /* Garantir que a grade ocupe toda a largura */
+  justify-items: center; /* Centraliza os botões dentro de cada célula */
+}
+
+.emergencia-btn {
+  background-color: var(--principal);
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%; /* Garantir que os botões se ajustem na célula */
+}
+
+.emergencia-btn:hover {
+  background-color: var(--escuro);
+  transform: scale(1.05);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo do ícone */
+.icone {
+  font-size: 1.6rem;
+}
+
+/* Área de instruções */
+#instrucao {
+  background-color: var(--card);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 3rem;
+}
+
+#instrucao h3 {
+  color: var(--principal);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+#instrucao p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  #emergencias h2 {
+    font-size: 2rem;
+  }
+
+  #emergencias p {
+    font-size: 1.1rem;
+  }
+
+  .botoes-emergencia {
+    grid-template-columns: 1fr 1fr; /* 2 botões por linha em telas menores */
+    gap: 1rem;
+  }
+
+  #instrucao {
+    padding: 1rem;
+  }
+}
+
+/* ===== SEÇÃO QUIZ ===== */
+/* ===== SEÇÃO QUIZ ===== */
+#quiz {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+#quiz h2 {
+  color: var(--principal);
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+#quiz p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* Barra de progresso */
+.progresso {
+  width: 100%;
+  height: 10px;
+  background: #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+
+#barraProgresso {
+  width: 0%; /* Será ajustado dinamicamente */
+  height: 100%;
+  background: var(--principal);
+  transition: width 0.4s ease;
+}
+
+/* Estilo para a pergunta */
+#pergunta {
+  background: var(--card);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.pergunta-texto {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--texto);
+  margin-bottom: 1rem;
+}
+
+/* Estilo para os botões de resposta */
+/* Estilo para as opções de resposta */
+#opcoes button {
+  background-color: var(--card); /* Usando a cor de fundo do card */
+  color: var(--texto);
+  padding: 1rem;
+  border: 2px solid var(--principal); /* Bordas mais visíveis */
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin: 0.5rem 0;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#opcoes button:hover {
+  background-color: var(--principal);
+  color: white;
+  transform: scale(1.05);
+}
+
+#opcoes button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  color: #777;
+}
+
+
+/* Botão "Próxima Pergunta" */
+.btn-proxima {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-top: 2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-proxima:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  #quiz h2 {
+    font-size: 2rem;
+  }
+
+  #quiz p {
+    font-size: 1.1rem;
+  }
+
+  .btn-resposta {
+    font-size: 1rem;
+  }
+
+  .btn-proxima {
+    font-size: 1rem;
+  }
+}
+
+/* ===== SEÇÃO CONTATOS ===== */
+#contatos {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+#contatos h2 {
+  color: var(--principal);
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+#contatos p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* Lista de contatos - Organizando em 2 colunas */
+.contatos-lista {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Garantir que haja 2 colunas */
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.contato-item {
+  background-color: var(--card);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.contato-item p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--texto);
+}
+
+.contato-item .icone {
+  font-size: 2rem;
+  color: var(--principal);
+}
+
+/* Dicas Importantes */
+.info-box {
+  background: var(--card);
+  border-left: 5px solid var(--principal);
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.info-box h3 {
+  color: var(--principal);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.info-box p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  #contatos h2 {
+    font-size: 2rem;
+  }
+
+  #contatos p {
+    font-size: 1.1rem;
+  }
+
+  /* Ajuste para garantir que os itens ocupem 2 colunas em telas menores */
+  .contatos-lista {
+    grid-template-columns: 1fr 1fr; /* 2 itens por linha */
+    gap: 1rem;
+  }
+
+  .contato-item p {
+    font-size: 1rem;
+  }
+}
+
+/* ===== SEÇÃO DE VÍDEO ===== */
+/* ===== SEÇÃO DE VÍDEO ===== */
+#video {
+  text-align: center;  /* Centraliza o conteúdo horizontalmente */
+  margin-top: 3rem;
+}
+
+#video h2 {
+  color: var(--principal);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+#video p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* Centraliza a legenda do vídeo */
+.video-legend {
+  display: flex;                  /* Usando flexbox para centralizar */
+  justify-content: center;         /* Centraliza horizontalmente */
+  align-items: center;             /* Garante que os itens fiquem alinhados verticalmente */
+  flex-direction: column;          /* Organiza o título e a descrição em coluna */
+  margin-bottom: 1.5rem;           /* Espaço abaixo da legenda */
+  text-align: center;              /* Centraliza o texto dentro da legenda */
+}
+
+.video-legend h3 {
+  font-size: 1.8rem;
+  color: var(--principal);
+  font-weight: bold;
+}
+
+.video-legend p {
+  font-size: 1.1rem;
+  color: var(--texto);
+  font-weight: normal;
+}
+
+/* Container para o vídeo */
+.video-container {
+  display: flex;
+  justify-content: center;  /* Centraliza o vídeo horizontalmente */
+  align-items: center;
+  max-width: 100%;
+  margin: 0 auto;
+  padding-top: 1rem;
+}
+
+.video-container iframe {
+  width: 100%;
+  max-width: 800px;
+  height: 400px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 600px) {
+  #video h2 {
+    font-size: 2rem;
+  }
+
+  #video p {
+    font-size: 1.1rem;
+  }
+
+  .video-legend h3 {
+    font-size: 1.5rem;
+  }
+
+  .video-legend p {
+    font-size: 1rem;
+  }
+
+  .video-container iframe {
+    height: 300px;
+  }
+}
+
+/* Container para centralizar o vídeo */
+.video-embed {
+  display: block;                /* Garante que o iframe seja um bloco */
+  margin-left: auto;             /* Centraliza horizontalmente */
+  margin-right: auto;            /* Centraliza horizontalmente */
+  max-width: 100%;               /* Faz o vídeo ocupar toda a largura do contêiner */
+  width: 80%;                    /* Limita a largura a 80% da tela */
+  height: 400px;                 /* Altura fixa para o vídeo */
+  border-radius: 8px;            /* Borda arredondada */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil para o vídeo */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 600px) {
+  .video-embed {
+    width: 100%;                 /* 100% de largura em telas pequenas */
+    height: 300px;               /* Ajusta a altura para telas menores */
+  }
+}
+
+/* ===== CENTRALIZA SOMENTE O TÍTULO E DESCRIÇÃO ===== */
+#video {
+  text-align: center;  /* Centraliza horizontalmente o texto */
+  margin-top: 3rem;     /* Espaço acima da seção */
+  margin-bottom: 3rem;  /* Espaço abaixo da seção */
+}
+
+#video h2 {
+  color: var(--principal);
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+#video p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
