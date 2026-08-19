@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <link rel="shortcut icon" type="Imagem/png" href="img/icone.jpg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guia de Primeiros Socorros</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilo/index.css">
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <img src="img/logo.png" alt="Guia de Primeiros Socorros Logo">
+    </div>
+    <div class="titulo">
+      <h1>🚑 Guia de Primeiros Socorros</h1>
+      <p>Aprenda o que fazer em situações de emergência — conhecimento que pode salvar vidas!</p>
+    </div>
+    <div class="toggle-tema">
+      <button id="toggleTema">🌙 Modo Escuro</button>
+    </div>
+  </header>
+
+  <nav>
+    <button class="ativo" onclick="mostrarSecao('inicio', this)">🏠 Início</button>
+    <button onclick="mostrarSecao('emergencias', this)">🚨 Emergências</button>
+    <button onclick="mostrarSecao('quiz', this)">🧠 Quiz</button>
+    <button onclick="mostrarSecao('contatos', this)">📞 Contatos Úteis</button>
+  </nav>
+
+  <main>
+    <!-- Início -->
+    <section id="inicio" class="ativo fade">
+      <h2>Bem-vindo!</h2>
+      
+      <div class="intro-box">
+        <p>Este guia foi desenvolvido para ajudar pessoas comuns a reagirem corretamente em situações de emergência. Saber o que fazer pode salvar uma vida antes da chegada dos profissionais de saúde.</p>
+        <p><strong>Atenção:</strong> As informações aqui têm caráter educativo. Sempre chame o <strong>SAMU (192)</strong> ou o <strong>Corpo de Bombeiros (193)</strong> em emergências reais.</p>
+      </div>
+
+      <div class="info-box">
+        <h3>Por que aprender primeiros socorros?</h3>
+        <ul>
+          <li>👶 Pode salvar crianças em situações de engasgo.</li>
+          <li>🧓 Ajuda idosos em casos de queda ou desmaio.</li>
+          <li>🏥 Garante uma resposta rápida até o socorro chegar.</li>
+        </ul>
+      </div>
+
+      <section id="video" class="fade"></section>
+
+      <div class="video-legend">
+        <h2>Aprenda as Manobras de Primeiros Socorros</h2>
+        <p>Assista aos vídeos abaixo para aprender algumas manobras importantes de primeiros socorros que podem salvar vidas!</p>
+      </div>
+
+      <iframe class="video-embed" width="560" height="315" src="engasgo.mp4" frameborder="0"></iframe>
+      <div class="video-legend">
+        <h3>Vídeo: Manobra de Engasgo</h3>
+        <p>Veja o passo a passo dessa manobra importante para salvar vidas.</p>
+      </div>
+
+      <iframe class="video-embed" width="560" height="315" src="ataque.mp4" frameborder="0"></iframe>
+      <div class="video-legend">
+        <h3>Vídeo: Manobra de Ataque Cardíaco</h3>
+        <p>Veja o passo a passo dessa manobra importante para salvar vidas.</p>
+      </div>
+
+      <iframe class="video-embed" width="560" height="315" src="desmaio.mp4" frameborder="0"></iframe>
+      <div class="video-legend">
+        <h3>Vídeo: Manobra de Desmaio</h3>
+        <p>Veja o passo a passo dessa manobra importante para salvar vidas.</p>
+      </div>
+
+      <iframe class="video-embed" width="560" height="315" src="queimaduras.mp4" frameborder="0"></iframe>
+      <div class="video-legend">
+        <h3>Vídeo: Primeiros socorros com queimaduras</h3>
+        <p>Veja o passo a passo dessa manobra importante para salvar vidas.</p>
+      </div>
+
+      <iframe class="video-embed" width="560" height="315" src="convulsão.mp4" frameborder="0"></iframe>
+      <div class="video-legend">
+        <h3>Vídeo: Manobra de Convulsão</h3>
+        <p>Veja o passo a passo dessa manobra importante para salvar vidas.</p>
+      </div>
+
+    </section>
+
+    <!-- Emergências -->
+    <section id="emergencias" class="fade">
+      <h2>Selecione a Emergência</h2>
+      <p>Escolha o tipo de emergência para ver o que deve ser feito passo a passo.</p>
+
+      <div class="botoes-emergencia">
+        <button class="emergencia-btn" onclick="mostrarInstrucao('desmaio')"><span class="icone">😵</span> Desmaio</button>
+        <button class="emergencia-btn" onclick="mostrarInstrucao('engasgo')"><span class="icone">🤐</span> Engasgo</button>
+        <button class="emergencia-btn" onclick="mostrarInstrucao('queimadura')"><span class="icone">🔥</span> Queimadura</button>
+        <button class="emergencia-btn" onclick="mostrarInstrucao('corte')"><span class="icone">🩸</span> Corte</button>
+        <button class="emergencia-btn" onclick="mostrarInstrucao('parada')"><span class="icone">❤️</span> Parada Cardíaca</button>
+        <button class="emergencia-btn" onclick="mostrarInstrucao('convulsao')"><span class="icone">⚡</span> Convulsão</button>
+      </div>
+
+      <!-- Área para mostrar as instruções da emergência -->
+      <div id="instrucao" class="info-box" style="display: none;">
+        <h3 id="tituloInstrucao">Selecione uma emergência para ver as instruções.</h3>
+        <p id="descricaoInstrucao">Clique em um dos botões para ver o que fazer em caso de emergência.</p>
+      </div>
+
+    </section>
+
+    <!-- Quiz -->
+    <section id="quiz" class="fade">
+      <h2>🧠 Teste seus conhecimentos!</h2>
+      <p>Responda as perguntas abaixo e descubra se você está preparado para agir em emergências.</p>
+
+      <div class="progresso">
+        <div id="barraProgresso"></div>
+      </div>
+
+      <div id="pergunta" class="card">
+        <p class="pergunta-texto">Aqui vai a pergunta do quiz.</p>
+      </div>
+
+      <div id="opcoes">
+        <button class="btn-resposta" onclick="responderQuestao('A')">Opção A</button>
+        <button class="btn-resposta" onclick="responderQuestao('B')">Opção B</button>
+        <button class="btn-resposta" onclick="responderQuestao('C')">Opção C</button>
+        <button class="btn-resposta" onclick="responderQuestao('D')">Opção D</button>
+      </div>
+
+      <p id="resultadoQuiz"></p>
+      <button id="proxima" class="btn-proxima" onclick="proximaPergunta()">Próxima Pergunta</button>
+      <p id="pontuacao"></p>
+    </section>
+
+    <!-- Contatos -->
+    <section id="contatos" class="fade">
+      <h2>📞 Contatos Úteis</h2>
+      <p>Em caso de emergência, entre em contato com os seguintes números:</p>
+
+      <div class="contatos-lista">
+        <div class="contato-item">
+          <span class="icone">🚑</span>
+          <p><strong>SAMU:</strong> 192 — Atendimento médico de urgência</p>
+        </div>
+        <div class="contato-item">
+          <span class="icone">🔥</span>
+          <p><strong>Bombeiros:</strong> 193 — Resgates e combate a incêndios</p>
+        </div>
+        <div class="contato-item">
+          <span class="icone">👮‍♂️</span>
+          <p><strong>Polícia Militar:</strong> 190 — Situações de segurança pública</p>
+        </div>
+        <div class="contato-item">
+          <span class="icone">🌪️</span>
+          <p><strong>Defesa Civil:</strong> 199 — Desastres naturais e apoio emergencial</p>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <h3>Dicas Importantes</h3>
+        <p>🚨 Mantenha sempre a calma.<br>
+        📍 Saiba informar o local exato do acidente.<br>
+        📱 Tenha os contatos de emergência salvos no celular.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Guia de Primeiros Socorros — Desenvolvido pelos alunos <strong>Ana Flávia e Gabriel</strong></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
